@@ -21,7 +21,7 @@ function ChipInputField() {
       ) {
         setShowSuggestion(false);
       }
-    };
+    }; 
 
     window.addEventListener("click", handleClickOutside);
     return () => {
@@ -67,6 +67,7 @@ function ChipInputField() {
   };
   return (
     <div className="container">
+      <h1>Welcome to Chip Input and Auto Suggestion Field</h1>
       <div className="tag-container">
         {inputList.map((film, index) => (
           <div
