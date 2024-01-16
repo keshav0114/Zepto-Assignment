@@ -30,9 +30,9 @@ function ChipInputField() {
   }, []);
 
   const handleKeyEvents = (e, value) => {
-    if (!inputValue?.length && e.keyCode === 8 && !firstBackspace) {
+    if (!value.length && e.keyCode === 8 && !firstBackspace) {
       setFirstBackspace(true);
-    } else if (!inputValue?.length && e.keyCode === 8 && firstBackspace) {
+    } else if (!value.length && e.keyCode === 8 && firstBackspace) {
       setInputList(
         inputList.filter(
           (item) => item.title !== inputList[inputList.length - 1].title
@@ -47,7 +47,6 @@ function ChipInputField() {
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
-    handleKeyEvents(e, value);
     if (!value) return;
     const filteredData = top100Films.filter((film) =>
       film.title?.toLowerCase().includes(value?.toLowerCase())
@@ -98,6 +97,7 @@ function ChipInputField() {
           onFocus={() => setShowSuggestion(true)}
           ref={inputRef}
           value={inputValue}
+          onKeyDown={(e) => handleKeyEvents(e, e.target.value)}
           onChange={(e) => handleInputChange(e)}
         />
       </div>
