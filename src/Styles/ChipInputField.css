@@ -32,7 +32,6 @@
   flex-wrap: wrap;
   padding: 5px;
   border-bottom: 1px solid black;
-  width: 100%;
   margin-top: 10px;
   width: 500px;
 }
@@ -58,4 +57,12 @@
   cursor: pointer;
   height: 20px;
   width: 20px;
+}
+@media (max-width: 600px) {
+  .suggestion-area {
+    width: 300px;
+  }
+  .tag-container {
+    width: 300px;
+  }
 }
